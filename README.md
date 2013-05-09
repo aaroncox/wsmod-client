@@ -1,6 +1,7 @@
 Required
 ---
 
+- [Python 2.7](http://www.python.org/getit/)
 - [cefPython](https://code.google.com/p/cefpython/) (Included) - Python bindings for Embedded Chromium Browser
 - [Dulwich](http://www.samba.org/~jelmer/dulwich/) - Pure python implementation of the Git file formats and protocols
 - [wxPython](http://www.wxpython.org/) - UI Widgets and Frames
