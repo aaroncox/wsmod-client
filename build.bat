@@ -1,0 +1,1 @@
+python pyinstaller\pyinstaller.py -F -w -p z:\projects\wsmod-client z:\projects\wsmod-client\wsmod.spec
