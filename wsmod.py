@@ -1,20 +1,13 @@
-# An example of embedding CEF in wxPython application.
-
 import platform
 if platform.architecture()[0] != "32bit":
     raise Exception("Only 32bit architecture is supported")
-
 import sys
 try:
-    # Import local PYD file (portable zip).
     if sys.hexversion >= 0x02070000 and sys.hexversion < 0x03000000:
         import cefpython_py27 as cefpython
-    elif sys.hexversion >= 0x03000000 and sys.hexversion < 0x04000000:
-        import cefpython_py32 as cefpython
     else:
         raise Exception("Unsupported python version: %s" % sys.version)
 except ImportError:
-    # Import from package (installer).
     from cefpython1 import cefpython
 
 import wx
@@ -64,14 +57,14 @@ class MainFrame(wx.Frame):
 
     def __init__(self):
         wx.Frame.__init__(self, parent=None, id=wx.ID_ANY,
-                          title='WSMod', size=(600,400))
+                          title='WSMod', size=(375,460))
         self.CreateMenu()
 
         windowInfo = cefpython.WindowInfo()
         windowInfo.SetAsChild(self.GetHandle())
         self.browser = cefpython.CreateBrowserSync(windowInfo,
                 browserSettings={},
-                navigateUrl=GetApplicationPath("cefsimple.html"))
+                navigateUrl=GetApplicationPath("http://wsmod.com"))
 
         self.Bind(wx.EVT_SET_FOCUS, self.OnSetFocus)
         self.Bind(wx.EVT_SIZE, self.OnSize)
